@@ -11,7 +11,7 @@
   Fork license:	Creative Commons Attribution 4.0 | You may privatize, fork, edit, teach, publish, or deploy for commercial use - with attribution in the text.
   REQUIRED: Sysmon version 10.2 or higher (due to changes in registry syntax and bug-fixes)
 	https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon
-	Note that 6.03, 7.01, 8.0X, and 10.1-2 have critical fixes for filtering, it's recommended you stay updated.
+   Please keep in mind that versions 6.03, 7.01, 8.0X, and 10.0-1 have critical fixes (including for filtering), it's recommended you stay up to date. Previous versions of SYSMON are no longer available for download!
 --!>
 
 
