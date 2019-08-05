@@ -1,4 +1,21 @@
-﻿<Sysmon schemaversion="4.1">
+﻿
+<!--
+  sysmon-config | A Sysmon configuration for Windows Servers, focused on low performance impacts but still good event tracing quality and easy customization by the community
+  Master version:	4ea50a6 | Date: 2019-06-03
+  Master author:	Olaf Hartong, other contributors also credited in-line or on Git
+  Master project:	https://github.com/olafhartong/sysmon-modular
+  Master license:	Creative Commons Attribution 4.0 | You may privatize, fork, edit, teach, publish, or deploy for commercial use - with attribution in the text.
+  Fork version:	01
+  Fork author:	D4Ph1l
+  Fork project:	SYSMON for Windows Servers
+  Fork license:	Creative Commons Attribution 4.0 | You may privatize, fork, edit, teach, publish, or deploy for commercial use - with attribution in the text.
+  REQUIRED: Sysmon version 10.2 or higher (due to changes in registry syntax and bug-fixes)
+	https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon
+	Note that 6.03, 7.01, 8.0X, and 10.1-2 have critical fixes for filtering, it's recommended you stay updated.
+--!>
+
+
+<Sysmon schemaversion="4.1">
   <EventFiltering>
     <ProcessCreate onmatch="include">
       <Image condition="image" name="technique_id=T1202,technique_name=Indirect Command Execution">wscript.exe</Image>
@@ -14,11 +31,8 @@
       <Image condition="image" name="technique_id=T1112,technique_name=Modify Registry">reg.exe</Image>
       <Image condition="begin with" name="technique_id=T1036,technique_name=Masquerading">C:\Users\Public\</Image>
       <Image condition="image" name="technique_id=T1016,technique_name=System Network Configuration Discovery">nbtstat.exe</Image>
-      <Image condition="image" name="technique_id=T1197,technique_name=BITS Jobs">bitsadmin.exe</Image>
       <Image condition="image" name="technique_id=T1033,technique_name=System Owner/User Discovery">PsLoggedOn.exe</Image>
-      <Image condition="image">klist.exe</Image>
       <Image condition="begin with" name="technique_id=T1036,technique_name=Masquerading">C:\Windows\system32\config\systemprofile\</Image>
-      <Image condition="image" name="technique_id=T1016,technique_name=System Network Configuration Discovery">ipconfig.exe</Image>
       <Image condition="image" name="technique_id=T1063,technique_name=Security Software Discovery">netsh.exe</Image>
       <Image condition="image" name="technique_id=T1033,technique_name=System Owner/User Discovery">quser.exe</Image>
       <Image condition="image" name="technique_id=T1057,technique_name=Process Discovery">query.exe</Image>
@@ -26,24 +40,15 @@
       <Image condition="begin with" name="technique_id=T1036,technique_name=Masquerading">C:\Windows\addins\</Image>
       <Image condition="image">hh.exe</Image>
       <Image condition="image" name="technique_id=T1191,technique_name=CMSTP">CMSTP.exe</Image>
-      <Image condition="image" name="technique_id=T1089,technique_name=Disabling Security Tools">MpCmdRun.exe</Image>
-      <Image condition="image" name="technique_id=T1083,technique_name=File and Directory Discovery">AccessChk.exe</Image>
       <Image condition="image" name="technique_id=T1007,technique_name=System Service Discovery">PsService.exe</Image>
       <Image condition="begin with" name="technique_id=T1036,technique_name=Masquerading">C:\Windows\Debug\</Image>
       <Image condition="image" name="technique_id=T1033,technique_name=System Owner/User Discovery">LogonSessions.exe</Image>
-      <Image condition="image" name="technique_id=T1018,technique_name=Remote System Discovery">net.exe</Image>
-      <Image condition="image">tree.com</Image>
       <Image condition="image" name="technique_id=T1105,technique_name=Remote File Copy">PsFile.exe</Image>
-      <Image condition="image">schtasks.exe</Image>
       <Image condition="image" name="technique_id=T1057,technique_name=Process Discovery">qprocess.exe</Image>
       <Image condition="image" name="technique_id=T1057,technique_name=Process Discovery">rwinsta.exe</Image>
       <Image condition="image" name="technique_id=T1016,technique_name=System Network Configuration Discovery">route.exe</Image>
       <Image condition="image" name="technique_id=T1033,technique_name=System Owner/User Discovery">sysinfo.exe</Image>
       <Image condition="begin with" name="technique_id=T1036,technique_name=Masquerading">C:\Users\NetworkService\</Image>
-      <Image condition="image" name="technique_id=T1016,technique_name=System Network Configuration Discovery">nslookup.exe</Image>
-      <Image condition="image" name="technique_id=T1057,technique_name=Process Discovery">tasklist.exe</Image>
-      <Image condition="image" name="technique_id=T1069,technique_name=Permission Groups Discovery">net1.exe</Image>
-      <Image condition="image" name="technique_id=T1053,technique_name=Scheduled Task">taskeng.exe</Image>
       <Image condition="image" name="technique_id=T1035,technique_name=Service Execution">PsExec.exe</Image>
       <Image condition="image" name="technique_id=T1098,technique_name=Account Manipulation">PsPasswd.exe</Image>
       <Image condition="image" name="technique_id=T1003,technique_name=Credential Dumping">ProcDump.exe</Image>
@@ -52,17 +57,13 @@
       <Image condition="begin with" name="technique_id=T1036,technique_name=Masquerading">C:\Users\Default\</Image>
       <Image condition="image" name="technique_id=T1083,technique_name=File and Directory Discovery">AccessEnum.exe</Image>
       <Image condition="image" name="technique_id=T1218,technique_name=Signed Binary Proxy Execution">replace.exe</Image>
-      <Image condition="image" name="technique_id=T1031,technique_name=Modify Existing Service">sc.exe</Image>
       <Image condition="begin with" name="technique_id=T1036,technique_name=Masquerading">C:\Windows\Help\</Image>
       <Image condition="image" name="technique_id=T1202,technique_name=Indirect Command Execution">pcalua.exe</Image>
-      <Image condition="contains" name="technique_id=T1036,technique_name=Masquerading">VolumeShadowCopy</Image>
       <Image condition="image" name="technique_id=T1218,technique_name=Signed Binary Proxy Execution">appcmd.exe</Image>
-      <Image condition="image" name="technique_id=T1086,technique_name=PowerShell">powershell.exe</Image>
       <Image condition="image" name="technique_id=T1005,technique_name=Data from Local System">PsLogList.exe</Image>
       <Image condition="image" name="technique_id=T1057,technique_name=Process Discovery">PsList.exe</Image>
       <Image condition="image" name="technique_id=T1134,technique_name=Access Token Manipulation">runas.exe</Image>
       <Image condition="image" name="technique_id=T1121,technique_name=Regsvcs/Regasm">regsvcs.exe</Image>
-      <Image condition="image" name="technique_id=T1202,technique_name=Indirect Command Execution">cscript.exe</Image>
       <Image condition="image" name="technique_id=T1170,technique_name=Mshta">mshta.exe</Image>
       <Image condition="image" name="technique_id=T1202,technique_name=Indirect Command Execution">bash.exe</Image>
       <Image condition="image" name="technique_id=T1121,technique_name=Regsvcs/Regasm">regasm.exe</Image>
@@ -75,8 +76,6 @@
       <Image condition="begin with" name="technique_id=T1036,technique_name=Masquerading">C:\PerfLogs\</Image>
       <Image condition="begin with" name="technique_id=T1036,technique_name=Masquerading">C:\$Recycle.bin\</Image>
       <Image condition="image" name="technique_id=T1127,technique_name=Trusted Developer Utilities">MSBuild.exe</Image>
-      <Image condition="image" name="technique_id=T1158,technique_name=Hidden Files and DirectoriesHidden Files and Directories">attrib.exe</Image>
-      <Image condition="image" name="technique_id=T1059,technique_name=Command-Line Interface">cmd.exe</Image>
       <Image condition="image" name="technique_id=T1089,technique_name=Disabling Security Tools">PsKill.exe</Image>
       <Image condition="image" name="technique_id=T1118,technique_name=InstallUtil">InstallUtil.exe</Image>
       <Image condition="image" name="technique_id=T1054,technique_name=Indicator Blocking">fltMC.exe</Image>
@@ -87,29 +86,20 @@
       <Image condition="image" name="technique_id=T1033,technique_name=System Owner/User Discovery">whoami.exe</Image>
       <Image condition="image" name="technique_id=T1070,technique_name=Indicator Removal on Host">wevtutil.exe</Image>
       <Image condition="image">taskkill.exe</Image>
-      <Image condition="image">tracert.exe</Image>
       <Image condition="image" name="technique_id=T1028,technique_name=Windows Remote Management">wsmprovhost.exe</Image>
-      <Image condition="image" name="technique_id=T1049,technique_name=System Network Connections Discovery">netstat.exe</Image>
-      <Image condition="contains" name="technique_id=T1036,technique_name=Masquerading">\wwwroot\</Image>
       <CommandLine condition="contains" name="technique_id=T1196,technique_name=Control Panel Items">control.exe /name</CommandLine>
       <CommandLine condition="contains" name="technique_id=T1054,technique_name=Indicator Blocking">fltmc unload</CommandLine>
       <CommandLine condition="contains" name="technique_id=T1003,technique_name=Credential Dumping">-ma lsass.exe</CommandLine>
-      <CommandLine condition="contains" name="technique_id=T1196,technique_name=Control Panel Items">rundll32.exe shell32.dll,Control_RunDLL</CommandLine>
       <CommandLine condition="contains" name="technique_id=T1063,technique_name=Security Software Discovery">misc::mflt</CommandLine>
       <CommandLine condition="contains" name="technique_id=T1027,technique_name=Obfuscated Files or Information">ˆ</CommandLine>
       <CommandLine condition="contains" name="technique_id=T1089,technique_name=Disabling Security Tools">DisableIOAVProtection</CommandLine>
       <CommandLine condition="contains" name="technique_id=T1089,technique_name=Disabling Security Tools">RemoveDefinitions</CommandLine>
       <CommandLine condition="contains" name="technique_id=T1118,technique_name=InstallUtil">/logfile= /LogToConsole=false /U</CommandLine>
       <CommandLine condition="contains" name="technique_id=T1089,technique_name=Disabling Security Tools">Add-MpPreference</CommandLine>
-      <ParentImage condition="image" name="technique_id=T1059,technique_name=Command-Line Interface">cmd.exe</ParentImage>
-      <ParentImage condition="image" name="technique_id=T1015,technique_name=Accessibility Features">utilman.exe</ParentImage>
       <ParentImage condition="image" name="technique_id=T1015,technique_name=Accessibility Features">DisplaySwitch.exe</ParentImage>
       <ParentImage condition="image" name="technique_id=T1015,technique_name=Accessibility Features">sethc.exe</ParentImage>
-      <ParentImage condition="image" name="technique_id=T1202,technique_name=Indirect Command Execution">wscript.exe</ParentImage>
       <ParentImage condition="image" name="technique_id=T1202,technique_name=Indirect Command Execution">control.exe</ParentImage>
-      <ParentImage condition="image" name="technique_id=T1202,technique_name=Indirect Command Execution">cscript.exe</ParentImage>
       <ParentImage condition="image" name="technique_id=T1088,technique_name=Bypass User Account Control">fodhelper.exe</ParentImage>
-      <ParentImage condition="image" name="technique_id=T1088,technique_name=Bypass User Account Control">eventvwr.exe</ParentImage>
       <ParentImage condition="image" name="technique_id=T1015,technique_name=Accessibility Features">osk.exe</ParentImage>
       <ParentImage condition="image" name="technique_id=T1086,technique_name=PowerShell">powershell.exe</ParentImage>
       <ParentImage condition="image" name="technique_id=T1086,technique_name=PowerShell">powershell_ise.exe</ParentImage>
@@ -121,9 +111,7 @@
       <ParentImage condition="image" name="technique_id=T1202,technique_name=Indirect Command Execution">pcalua.exe</ParentImage>
     </ProcessCreate>
     <ProcessCreate onmatch="exclude">
-      <Image condition="end with">C:\Program Files (x86)\Common Files\Adobe\OOBE\PDApp\UWA\updaterstartuputility.exe</Image>
       <Image condition="begin with">D:\Program Files\SplunkUniversalForwarder\bin\</Image>
-      <Image>C:\Program Files\Malwarebytes\Anti-Malware\mbamtray.exe</Image>
       <Image>C:\Windows\System32\conhost.exe</Image>
       <Image>C:\Program Files (x86)\Trend Micro\OfficeScan Client\TmExtIns.exe</Image>
       <Image>C:\Windows\System32\audiodg.exe</Image>
@@ -133,24 +121,20 @@
       <Image condition="end with">C:\Windows\SysWOW64\Macromed\Flash\FlashPlayerUpdateService.exe</Image>
       <Image>C:\Program Files (x86)\Microsoft Office\Office16\MSOSYNC.EXE</Image>
       <Image>C:\Program Files\ESET\ESET Nod32 Antivirus\ekrn.exe</Image>
-      <Image condition="end with">C:\Program Files (x86)\Common Files\Adobe\AdobeGCClient\AdobeGCClient.exe</Image>
       <Image>C:\Windows\SysWOW64\wermgr.exe</Image>
       <Image condition="begin with">C:\Program Files\Windows Defender\</Image>
-      <Image condition="end with">C:\Program Files (x86)\Adobe\Acrobat DC\Acrobat\LogTransport2.exe</Image>
       <Image>C:\Program Files\Microsoft Security Client\MpCmdRun.exe</Image>
       <Image condition="end with">C:\Program Files (x86)\Common Files\Adobe\OOBE\PDApp\P7\adobe_licutil.exe</Image>
       <Image>C:\Windows\System32\wermgr.exe</Image>
       <Image>C:\Program Files (x86)\Sophos\Sophos Anti-Virus\Web Intelligence\swi_service.exe</Image>
       <Image condition="begin with">D:\Program Files\Splunk\bin\</Image>
       <Image>C:\Program Files (x86)\Sophos\Sophos System Protection\ssp.exe</Image>
-      <Image condition="end with">C:\Program Files (x86)\Dropbox\Update\DropboxUpdate.exe</Image>
       <Image condition="begin with">C:\Program Files\Splunk\bin\</Image>
       <Image>C:\Windows\system32\sppsvc.exe</Image>
       <Image condition="begin with">C:\Program Files\SplunkUniversalForwarder\bin\</Image>
       <Image>C:\Program Files (x86)\Trend Micro\BM\TMBMSRV.exe</Image>
       <Image>C:\Program Files\Malwarebytes\Anti-Malware\mbam.exe</Image>
       <Image>C:\Windows\System32\powercfg.exe</Image>
-      <Image condition="begin with">C:\Program Files (x86)\Google\Update\</Image>
       <Image>C:\Windows\Microsoft.NET\Framework64\v4.0.30319\mscorsvw.exe</Image>
       <Image condition="end with">C:\Program Files (x86)\Common Files\Adobe\ARM\1.0\armsvc.exe</Image>
       <Image>C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorsvw.exe</Image>
@@ -165,7 +149,6 @@
       <Image>C:\Program Files (x86)\Sophos\AutoUpdate\ALsvc.exe</Image>
       <Image>C:\Program Files (x86)\Sophos\Sophos Anti-Virus\SAVAdminService.exe</Image>
       <Image>C:\Windows\system32\MpSigStub.exe</Image>
-      <Image condition="end with">C:\Program Files (x86)\Common Files\Adobe\OOBE\PDApp\P6\adobe_licutil.exe</Image>
       <Image>C:\Windows\System32\MusNotification.exe</Image>
       <Image condition="end with">C:\Program Files (x86)\Adobe\Acrobat DC\Acrobat\AcroCEF\AcroCEF.exe</Image>
       <Image condition="end with">C:\Program Files (x86)\Adobe\Acrobat DC\Acrobat\AdobeCollabSync.exe</Image>
@@ -287,10 +270,8 @@
     </FileCreateTime>
     <FileCreateTime onmatch="exclude">
       <Image condition="contains">setup</Image>
-      <Image condition="end with">Root\VFS\ProgramFilesX86\Google\Chrome\Application\chrome.exe</Image>
       <Image condition="end with">AppData\Local\Google\Chrome\Application\chrome.exe</Image>
-      <Image condition="image">OneDrive.exe</Image>
-    </FileCreateTime>
+     </FileCreateTime>
     <NetworkConnect onmatch="include">
       <Image condition="image" name="technique_id=T1202,technique_name=Indirect Command Execution">wscript.exe</Image>
       <Image condition="image">java.exe</Image>
@@ -301,10 +282,8 @@
       <Image condition="image" name="technique_id=T1218,technique_name=Signed Binary Proxy Execution">notepad.exe</Image>
       <Image condition="image">tor.exe</Image>
       <Image condition="image" name="technique_id=T1218,technique_name=Signed Binary Proxy Execution">SyncAppvPublishingServer.exe</Image>
-      <Image condition="image" name="technique_id=T1218,technique_name=Signed Binary Proxy Execution">certutil.exe</Image>
       <Image condition="begin with" name="technique_id=T1036,technique_name=Masquerading">C:\Windows\Media\</Image>
       <Image condition="image" name="technique_id=T1112,technique_name=Modify Registry">reg.exe</Image>
-      <Image condition="image" name="technique_id=T1047,technique_name=Windows Management Instrumentation">wmic.exe</Image>
       <Image condition="begin with" name="technique_id=T1036,technique_name=Masquerading">C:\Users\Public\</Image>
       <Image condition="image" name="technique_id=T1016,technique_name=System Network Configuration Discovery">nbtstat.exe</Image>
       <Image condition="begin with" name="technique_id=T1036,technique_name=Masquerading">C:\ProgramData</Image>
@@ -369,15 +348,12 @@
       <Image condition="image">hh.exe</Image>
       <Image condition="begin with" name="technique_id=T1036,technique_name=Masquerading">C:\Users</Image>
       <Image condition="image" name="technique_id=T1049,technique_name=System Network Connections Discovery">netstat.exe</Image>
-      <Image condition="contains" name="technique_id=T1036,technique_name=Masquerading">\wwwroot\</Image>
       <DestinationPort name="technique_id=T1043,technique_name=Commonly Used Port">1723</DestinationPort>
-      <DestinationPort name="technique_id=T1043,technique_name=Commonly Used Port">8080</DestinationPort>
       <DestinationPort name="technique_id=T1021,technique_name=Remote Services">23</DestinationPort>
       <DestinationPort name="technique_id=T1043,technique_name=Commonly Used Port">9001</DestinationPort>
       <DestinationPort name="technique_id=T1021,technique_name=Remote Services">22</DestinationPort>
       <DestinationPort name="technique_id=T1028,technique_name=Windows Remote Management">5986</DestinationPort>
       <DestinationPort name="technique_id=T1021,technique_name=Remote Services">5900</DestinationPort>
-      <DestinationPort name="technique_id=T1043,technique_name=Commonly Used Port">3128</DestinationPort>
       <DestinationPort name="technique_id=T1021,technique_name=Remote Services">3389</DestinationPort>
       <DestinationPort name="technique_id=T1043,technique_name=Commonly Used Port">9030</DestinationPort>
       <DestinationPort name="technique_id=T1043,technique_name=Commonly Used Port">25</DestinationPort>
@@ -386,6 +362,9 @@
       <DestinationPort name="technique_id=T1021,technique_name=Remote Services">5800</DestinationPort>
     </NetworkConnect>
     <NetworkConnect onmatch="exclude">
+      <DestinationPort name="technique_id=T1043,technique_name=Commonly Used Port, excluded for servers">3128</DestinationPort>
+      <DestinationPort name="technique_id=T1043,technique_name=Commonly Used Port, excluded for servers">8080</DestinationPort>
+      <Image condition="contains" name="technique_id=T1036,technique_name=Masquerading, excluded for servers">\wwwroot\</Image>
       <Image>C:\Program Files\ESET\ESET Nod32 Antivirus\ekrn.exe</Image>
       <Image condition="image">Spotify.exe</Image>
       <Image condition="image">OneDrive.exe</Image>
@@ -459,6 +438,7 @@
       <SourceImage>C:\Program Files\Ivanti\Workspace Control\cpushld.exe</SourceImage>
       <SourceImage condition="end with">\Citrix\System32\wfshell.exe</SourceImage>
       <SourceImage>C:\Program Files\Microsoft Security Client\MsMpEng.exe</SourceImage>
+      <SourceImage>C:\Program Files (x86)\Trend Micro\OfficeScan Client\TmListen.exe</SourceImage>
       <GrantedAccess>0x1000</GrantedAccess>
       <GrantedAccess>0x1400</GrantedAccess>
       <GrantedAccess>0x101000</GrantedAccess>
@@ -470,8 +450,6 @@
       <TargetFilename condition="contains" name="technique_id=T1047,technique_name=File System Permissions Weakness">\AppData\Temp\</TargetFilename>
       <TargetFilename condition="end with">.vb</TargetFilename>
       <TargetFilename condition="end with">.dotm</TargetFilename>
-      <TargetFilename condition="end with">.asp</TargetFilename>
-      <TargetFilename condition="end with">.aspx</TargetFilename>
       <TargetFilename condition="end with">.potm</TargetFilename>
       <TargetFilename condition="end with">.vbe</TargetFilename>
       <TargetFilename condition="end with" name="technique_id=T1086,technique_name=PowerShell">.ps2</TargetFilename>
@@ -484,7 +462,6 @@
       <TargetFilename condition="end with">.xla</TargetFilename>
       <TargetFilename condition="begin with">C:\Users\Default</TargetFilename>
       <TargetFilename condition="end with">.docm</TargetFilename>
-      <TargetFilename condition="end with">.jsp</TargetFilename>
       <TargetFilename condition="end with" name="technique_id=T1127,technique_name=Trusted Developer Utilities">.*proj</TargetFilename>
       <TargetFilename condition="end with">.slk</TargetFilename>
       <TargetFilename condition="end with">.pptm</TargetFilename>
@@ -494,7 +471,6 @@
       <TargetFilename condition="contains">\Content.Outlook\</TargetFilename>
       <TargetFilename condition="end with">.pyw</TargetFilename>
       <TargetFilename condition="contains">\Downloads\</TargetFilename>
-      <TargetFilename condition="begin with">C:\Windows\System32\GroupPolicy\User\Scripts</TargetFilename>
       <TargetFilename condition="end with" name="technique_id=T1170,technique_name=Mshta">.hta</TargetFilename>
       <TargetFilename condition="end with">.sldm</TargetFilename>
       <TargetFilename condition="end with" name="technique_id=T1187,technique_name=Forced Authentication">.lnk</TargetFilename>
@@ -520,7 +496,6 @@
       <TargetFilename condition="end with">.xltm</TargetFilename>
       <TargetFilename condition="begin with" name="technique_id=T1086,technique_name=PowerShell">C:\Windows\SysWOW64\WindowsPowerShell</TargetFilename>
       <TargetFilename condition="begin with" name="technique_id=T1047,technique_name=File System Permissions Weakness">C:\Users\Public\</TargetFilename>
-      <TargetFilename condition="end with">.jspx</TargetFilename>
       <TargetFilename condition="begin with" name="technique_id=T1047,technique_name=Windows Management Instrumentation">C:\Windows\SysWOW64\Wbem</TargetFilename>
       <TargetFilename condition="contains" name="technique_id=T1138,technique_name=Application Shimming">C:\Windows\AppPatch\Custom</TargetFilename>
       <TargetFilename condition="begin with">C:\Windows\System32\Drivers</TargetFilename>
@@ -532,6 +507,11 @@
       <TargetFilename condition="end with">.exe</TargetFilename>
     </FileCreate>
     <FileCreate onmatch="exclude">
+      <TargetFilename condition="end with" name=".ASP file creation, excluded on servers">.asp</TargetFilename>
+      <TargetFilename condition="end with" name=".ASPX file creation, excluded on servers">.aspx</TargetFilename>
+      <TargetFilename condition="end with" name=".JSP file creation, excluded on servers">.jsp</TargetFilename>
+      <TargetFilename condition="end with" name=".JSPX file creation, excluded on servers">.jspx</TargetFilename>
+      <TargetFilename condition="begin with" name="GPO writting on disk, excluded on servers">C:\Windows\System32\GroupPolicy\</TargetFilename>
       <Image>C:\Program Files\Common Files\Microsoft Shared\ClickToRun\OfficeC2RClient.exe</Image>
       <Image condition="begin with">C:\WINDOWS\winsxs\amd64_microsoft-windows</Image>
       <Image>C:\Program Files (x86)\Dell\CommandUpdate\InvColPC.exe</Image>
@@ -801,6 +781,6 @@
       <Operation name="technique_id=T1047,technique_name=Windows Management Instrumentation">Created</Operation>
     </WmiEvent>
   </EventFiltering>
-  <HashAlgorithms>*</HashAlgorithms>
+  <HashAlgorithms>MD5,SHA1</HashAlgorithms>
   <CheckRevocation />
 </Sysmon>
