@@ -1,4 +1,3 @@
-﻿
 <!--
   sysmon-config | A Sysmon configuration for Windows Servers, focused on low performance impacts but still good event tracing quality and easy customization by the community
   Master version:	4ea50a6 | Date: 2019-06-03
@@ -11,9 +10,8 @@
   Fork license:	Creative Commons Attribution 4.0 | You may privatize, fork, edit, teach, publish, or deploy for commercial use - with attribution in the text.
   REQUIRED: Sysmon version 10.2 or higher (due to changes in registry syntax and bug-fixes)
 	https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon
-   Please keep in mind that versions 6.03, 7.01, 8.0X, and 10.0-1 have critical fixes (including for filtering), it's recommended you stay up to date. Previous versions of SYSMON are no longer available for download!
---!>
-
+  Please keep in mind that versions 6.03, 7.01, 8.0X, and 10.0-1 have critical fixes (including for filtering), it's recommended you stay up to date. Previous versions of SYSMON are no longer available for download!
+-->
 
 <Sysmon schemaversion="4.1">
   <EventFiltering>
@@ -91,7 +89,7 @@
       <CommandLine condition="contains" name="technique_id=T1054,technique_name=Indicator Blocking">fltmc unload</CommandLine>
       <CommandLine condition="contains" name="technique_id=T1003,technique_name=Credential Dumping">-ma lsass.exe</CommandLine>
       <CommandLine condition="contains" name="technique_id=T1063,technique_name=Security Software Discovery">misc::mflt</CommandLine>
-      <CommandLine condition="contains" name="technique_id=T1027,technique_name=Obfuscated Files or Information">ˆ</CommandLine>
+      <CommandLine condition="contains" name="technique_id=T1027,technique_name=Obfuscated Files or Information">Ë†</CommandLine>
       <CommandLine condition="contains" name="technique_id=T1089,technique_name=Disabling Security Tools">DisableIOAVProtection</CommandLine>
       <CommandLine condition="contains" name="technique_id=T1089,technique_name=Disabling Security Tools">RemoveDefinitions</CommandLine>
       <CommandLine condition="contains" name="technique_id=T1118,technique_name=InstallUtil">/logfile= /LogToConsole=false /U</CommandLine>
@@ -362,13 +360,13 @@
       <DestinationPort name="technique_id=T1021,technique_name=Remote Services">5800</DestinationPort>
     </NetworkConnect>
     <NetworkConnect onmatch="exclude">
-      <DestinationPort name="technique_id=T1043,technique_name=Commonly Used Port, excluded for servers">3128</DestinationPort>
-      <DestinationPort name="technique_id=T1043,technique_name=Commonly Used Port, excluded for servers">8080</SourcePort>
+      <SourcePort name="Proxy server standard port, excluded for servers for performance reasons">3128</SourcePort>
+      <SourcePort name="proxy/web server standard port, excluded for servers for performance reasons">8080</SourcePort>
       <SourcePort name="web server standard port, but excluded for servers for performance reasons">80</SourcePort>
       <SourcePort name="DNS server standard port, but excluded for servers for performance reasons">53</SourcePort>
       <SourcePort name="SMB server standard port, but excluded for servers for performance reasons">445</SourcePort>
       <SourcePort name="DHCP server standard port, but excluded for servers for performance reasons">67</SourcePort>
-      <-- Source: https://blogs.msmvps.com/acefekay/2011/11/01/active-directory-firewall-ports-let-s-try-to-make-this-simple/ --!>
+      <!-- Source: https://blogs.msmvps.com/acefekay/2011/11/01/active-directory-firewall-ports-let-s-try-to-make-this-simple/ -->
       <SourcePort name="Kerberos server standard port, but excluded for servers for performance reasons">88</SourcePort>
       <SourcePort name="Kerberos Kerberos change/set password (Replication, User and Computer Authentication, Trusts) standard port, but excluded for servers for performance reasons">464</SourcePort>
       <SourcePort name="LDAP server (Directory, Replication, User and Computer Authentication, Group Policy, Trusts) standard port, but excluded for servers for performance reasons">389</SourcePort>
