@@ -363,7 +363,27 @@
     </NetworkConnect>
     <NetworkConnect onmatch="exclude">
       <DestinationPort name="technique_id=T1043,technique_name=Commonly Used Port, excluded for servers">3128</DestinationPort>
-      <DestinationPort name="technique_id=T1043,technique_name=Commonly Used Port, excluded for servers">8080</DestinationPort>
+      <DestinationPort name="technique_id=T1043,technique_name=Commonly Used Port, excluded for servers">8080</SourcePort>
+      <SourcePort name="web server standard port, but excluded for servers for performance reasons">80</SourcePort>
+      <SourcePort name="DNS server standard port, but excluded for servers for performance reasons">53</SourcePort>
+      <SourcePort name="SMB server standard port, but excluded for servers for performance reasons">445</SourcePort>
+      <SourcePort name="DHCP server standard port, but excluded for servers for performance reasons">67</SourcePort>
+      <-- Source: https://blogs.msmvps.com/acefekay/2011/11/01/active-directory-firewall-ports-let-s-try-to-make-this-simple/ --!>
+      <SourcePort name="Kerberos server standard port, but excluded for servers for performance reasons">88</SourcePort>
+      <SourcePort name="Kerberos Kerberos change/set password (Replication, User and Computer Authentication, Trusts) standard port, but excluded for servers for performance reasons">464</SourcePort>
+      <SourcePort name="LDAP server (Directory, Replication, User and Computer Authentication, Group Policy, Trusts) standard port, but excluded for servers for performance reasons">389</SourcePort>
+      <SourcePort name="LDAP (DC) server SSL (Directory, Replication, User and Computer Authentication, Group Policy, Trusts) standard port, but excluded for servers for performance reasons">636</SourcePort>
+      <SourcePort name="DC LDAP GC SSL (Directory, Replication, User and Computer Authentication, Group Policy, Trusts) standard port, but excluded for servers for performance reasons">3269</SourcePort>
+      <SourcePort name="DC file replication (RPC, DFSR via SYSVOL) standard port, but excluded for servers for performance reasons">5722</SourcePort>
+      <SourcePort name="DC AD DS Web Services standard port, but excluded for servers for performance reasons">9389</SourcePort>
+      <SourcePort name="web server standard port, but excluded for servers for performance reasons">443</SourcePort>
+      <SourcePort name="WSUS standard port, but excluded for servers for performance reasons">8530</SourcePort>
+      <SourcePort name="SMTP server standard port, but excluded for servers for performance reasons">25</SourcePort>
+      <SourcePort name="FTP server standard port, but excluded for servers for performance reasons">21</SourcePort>
+      <SourcePort name="IMAPS server standard port, but excluded for servers for performance reasons">993</SourcePort>
+      <SourcePort name="MySQL server standard port, but excluded for servers for performance reasons">3306</SourcePort>
+      <SourcePort name="MS SQL server standard port, but excluded for servers for performance reasons">1403</SourcePort>
+      <SourcePort name="MS Exchange server rooting standard port, but excluded for servers for performance reasons">691</SourcePort>
       <Image condition="contains" name="technique_id=T1036,technique_name=Masquerading, excluded for servers">\wwwroot\</Image>
       <Image>C:\Program Files\ESET\ESET Nod32 Antivirus\ekrn.exe</Image>
       <Image condition="image">Spotify.exe</Image>
