@@ -1,2 +1,3 @@
 .DS_Store
 baseconfig_schema421.xml
+Generate-Sysmon-config.ps1
