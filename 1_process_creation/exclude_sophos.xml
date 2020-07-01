@@ -8,16 +8,16 @@
         <Image condition="is">C:\Program Files (x86)\Sophos\AutoUpdate\ALsvc.exe</Image> <!--Credit d4ph1l -->
         <Image condition="is">C:\Program Files (x86)\Sophos\Sophos Anti-Virus\SAVAdminService.exe</Image> <!--Credit d4ph1l -->
         <Image condition="is">C:\Program Files (x86)\Sophos\Remote Management System\ManagementAgentNT.exe</Image> <!--Credit d4ph1l -->
-	<Image condition="is">C:\Program Files (x86)\Sophos\Clean\SophosCleanM.exe<Image> <!--Credit d4ph1l -->
-	<Image condition="is">C:\Program Files\Sophos\Endpoint Defense\SEDService.exe<Image> <!--Credit d4ph1l -->
-	<Image condition="is">C:\Program Files\Sophos\Sophos File Scanner\SophosFS.exe<Image> <!--Credit d4ph1l -->
-	<Image condition="is">C:\Program Files (x86)\Sophos\Health\SophosHealth.exe<Image> <!--Credit d4ph1l -->
-	<Image condition="is">C:\Program Files (x86)\Sophos\Management Communications System\Endpoint\McsAgent.exe<Image> <!--Credit d4ph1l -->
-	<Image condition="is">C:\Program Files (x86)\Sophos\Management Communications System\Endpoint\McsClient.exe<Image> <!--Credit d4ph1l -->
-	<Image condition="is">C:\Program Files\Sophos\Sophos Network Threat Protection\SophosNtpService.exe<Image> <!--Credit d4ph1l -->
-	<Image condition="is">C:\Program Files\Sophos\Safestore\SophosSafestore64.exe<Image> <!--Credit d4ph1l -->
-	<Image condition="is">C:\Program Files\Sophos\Endpoint Defense\SSPService.exe<Image> <!--Credit d4ph1l -->
-	<Image condition="is">C:\Program Files (x86)\Sophos\Sophos Anti-Virus\Web Intelligence\swi_filter.exe<Image> <!--Credit d4ph1l -->
+	<Image condition="is">C:\Program Files (x86)\Sophos\Clean\SophosCleanM.exe</Image> <!--Credit d4ph1l -->
+	<Image condition="is">C:\Program Files\Sophos\Endpoint Defense\SEDService.exe</Image> <!--Credit d4ph1l -->
+	<Image condition="is">C:\Program Files\Sophos\Sophos File Scanner\SophosFS.exe</Image> <!--Credit d4ph1l -->
+	<Image condition="is">C:\Program Files (x86)\Sophos\Health\SophosHealth.exe</Image> <!--Credit d4ph1l -->
+	<Image condition="is">C:\Program Files (x86)\Sophos\Management Communications System\Endpoint\McsAgent.exe</Image> <!--Credit d4ph1l -->
+	<Image condition="is">C:\Program Files (x86)\Sophos\Management Communications System\Endpoint\McsClient.exe</Image> <!--Credit d4ph1l -->
+	<Image condition="is">C:\Program Files\Sophos\Sophos Network Threat Protection\SophosNtpService.exe</Image> <!--Credit d4ph1l -->
+	<Image condition="is">C:\Program Files\Sophos\Safestore\SophosSafestore64.exe</Image> <!--Credit d4ph1l -->
+	<Image condition="is">C:\Program Files\Sophos\Endpoint Defense\SSPService.exe</Image> <!--Credit d4ph1l -->
+	<Image condition="is">C:\Program Files (x86)\Sophos\Sophos Anti-Virus\Web Intelligence\swi_filter.exe</Image> <!--Credit d4ph1l -->
 	
       </ProcessCreate>
   </EventFiltering>
